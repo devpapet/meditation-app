@@ -1,0 +1,332 @@
+<My_Button1@Image>
+    text: '1'
+    size_hint_x: 1
+    size_hint_y: 0.06
+    pos_hint:{"center_x":0.5,"center_y":0.982 + 0.065}
+    color: 255/255, 255/255, 255/255, 255/255
+
+<My_Text1@Label>
+    size_hint: None, None
+    size: self.texture_size
+
+<My_Number1@Label>
+    size_hint: None, None
+    size: self.texture_size
+
+
+<My_Arrow@Image>
+    opacity: 0.3
+    source: "r_right.png"
+    size_hint_x: 0.06
+    size_hint_y: 0.06
+    pos_hint:{"center_x":0.95,"center_y": 0.5}
+    color: 41 / 255, 145 / 255, 43 / 255, 1
+
+
+R3Window:
+
+    name: 'R3'
+
+    FloatLayout:
+
+        id: background_lines
+        orientation: "vertical"
+        size: root.width,root.height
+        Label:
+            text: ''
+            size_hint_x: 1
+            size_hint_y: 1
+            pos_hint:{"center_x":0.5,"center_y":0.5}
+            canvas.before:
+                Color:
+                    rgba: 200/255, 203/255, 202/255, 255/255
+                    #rgba: 0, 1, 0, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+
+
+
+
+    FloatLayout:
+        id: shuffle_row
+        orientation: "vertical"
+        size: root.width,root.height
+        pos_hint:{"center_x": 0.5, "center_y":root.position_of_row}
+
+        #
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row}
+            color: root.color_of_first_button
+        # text
+        Label:
+            text: root.buttons[940][0][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row + 0.005}
+            color: root.color_of_arrow  #root.color_of_first_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrow
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row}
+            color: root.color_of_arrow
+
+
+
+
+
+
+    FloatLayout:
+        id: buttons
+        orientation: "vertical"
+        size: root.width,root.height
+        pos_hint:{"center_x": 0.5, "center_y":root.position_of_row}
+
+    FloatLayout:
+        id: numbers
+        orientation: "vertical"
+        size: root.width,root.height
+        pos_hint:{"center_x": 0.5, "center_y":root.position_of_row}
+
+    FloatLayout:
+        id: signs
+        orientation: "vertical"
+        size: root.width,root.height
+        pos_hint:{"center_x": 0.5, "center_y":root.position_of_row}
+
+    FloatLayout:
+        id: times
+        orientation: "vertical"
+        size: root.width,root.height
+        pos_hint:{"center_x": 0.5, "center_y":root.position_of_row}
+
+        # first row time text text
+        Label:
+            text: root.all_time
+            font_name: "Sony"
+            font_size: 0.03  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"right": 0.9,"center_y":root.position_of_first_row + 0.0025}
+            color: 1,1,1,1
+
+        # first other rows time text text
+        Label:
+            text: root.track_time
+            font_name: "Sony"
+            font_size: 0.02  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"right": 0.9,"center_y":root.position_of_first_row - root.rate + 0.0025}
+            color: 0,0,0,1
+
+
+
+
+    FloatLayout:
+        id: top
+        orientation: "vertical"
+        size: root.width,root.height
+        pos_hint:{"center_x": 0.5, "center_y": 0.5}
+
+        # top base
+        Image:
+            text: ''
+            size_hint_x: 1
+            size_hint_y: 0.05
+            pos_hint:{"center_x":0.5,"center_y":0.975}
+            color: root.color_of_top
+
+        # settings text
+        Label:
+            text: root.buttons[950][0][0]
+            font_name: "Sony"
+            font_size: 0.03  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x": 0.035,"center_y":1-0.025}
+            color: root.color_of_top_text #41 / 255, 145 / 255, 43 / 255, 1
+
+        # line
+        Image:
+            opacity: 1
+            text: ''
+            size_hint_x: 1
+            size_hint_y: 0.003
+            pos_hint:{"center_x":0.5,"center_y":0.95}
+            color: root.color_of_top_line
+
+
+
+
+        # music picto not
+        Image:
+            opacity: 1
+            source: root.pictos[17][0]
+            size_hint_y: 0.03
+            size_hint_x: 0.03
+            pos_hint:{"center_x":0.95,"center_y":1-0.025}
+            color: root.color_of_top_picto
+        Image:
+            opacity: 0
+            source: root.pictos[17][2]
+            size_hint_y: 0.05
+            size_hint_x: 0.05
+            pos_hint:{"center_x":0.95,"center_y":1-0.025}
+            color: root.color_of_top_picto
+        Image:
+            opacity: 1
+            source: root.pictos[17][1]
+            size_hint_y: 0.05
+            size_hint_x: 0.05
+            pos_hint:{"center_x":0.95,"center_y":1-0.025}
+            color: root.color_of_top_picto
+
+        # voice picto
+        Image:
+            opacity: 1
+            source: root.pictos[11][0]
+            size_hint_y: 0.05
+            size_hint_x: 0.05
+            pos_hint:{"center_x":0.85,"center_y":1-0.025}
+            color: root.color_of_top_picto
+        # language picto
+        Image:
+            opacity: 1
+            source: root.pictos[8][0]
+            size_hint_y: 0.05
+            size_hint_x: 0.05
+            pos_hint:{"center_x":0.75,"center_y":1-0.025}
+
+        # airplane picto
+        Image:
+            opacity: 1
+            source: root.pictos[5][0]
+            size_hint_y: 0.05
+            size_hint_x: 0.05
+            pos_hint:{"center_x":0.65,"center_y":1-0.025}
+            color: root.color_of_top_picto
+        # touch sound picto
+        Image:
+            opacity: 1
+            source: root.pictos[2][0]
+            size_hint_y: 0.05
+            size_hint_x: 0.05
+            pos_hint:{"center_x":0.55,"center_y":1-0.025}
+            color: root.color_of_top_picto
+
+
+
+
+
+    FloatLayout:
+        id: bottom
+        orientation: "vertical"
+        size: root.width,root.height
+        pos_hint:{"center_x": 0.5, "center_y": 0.5}
+
+        # bottom base
+        Image:
+            text: ''
+            size_hint_x: 1
+            size_hint_y: 0.078
+            pos_hint:{"center_x":0.5,"center_y":0.035}
+            color: root.color_of_bottom_button
+
+
+        # playlist picto
+        Image:
+            source: "r_playlist_90.png"
+            size_hint_x: 0.09
+            size_hint_y: 0.09
+            pos_hint:{"x":0.11,"center_y":0.043}
+            color: root.color_of_bottom_button_picto
+
+        # loop picto
+        Image:
+            opacity: 0.3
+            source: "r_loop_100.png"
+            size_hint_x: 0.075
+            size_hint_y: 0.075
+            pos_hint:{"x":0.82,"center_y":0.035}
+            color: root.color_of_bottom_button_picto
+            canvas.before:
+                PushMatrix
+                Rotate:
+                    axis: 0,0,1
+                    angle: root.angle
+                    origin: self.center
+            canvas.after:
+                PopMatrix
+
+        Image:
+            opacity: root.opacity_of_arrow_b
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":0.035}
+            color: root.color_of_arrow_b
+
+        Image:
+            opacity: root.opacity_of_arrow_b
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.05,"center_y":0.035}
+            color: root.color_of_arrow_b
+            canvas.before:
+                PushMatrix
+                Rotate:
+                    axis: 0,1,0
+                    angle: 180
+                    origin: self.center
+            canvas.after:
+                PopMatrix
+
+
+
+    FloatLayout:
+        id: bottom_line
+        orientation: "vertical"
+        size: root.width,root.height
+        pos_hint:{"center_x": 0.5, "center_y": 0.5}
+        # line
+        Image:
+            text: ''
+            size_hint_x: 1
+            size_hint_y: 0.003
+            pos_hint:{"center_x":0.5,"center_y":0.073}
+            color: root.color_of_bottom_button_line
+
+        Label:
+            text: root.small_number
+            font_name: "Sony"
+            font_size: 0.035  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"center_x":0.5,"center_y":0.040}
+            color: root.color_of_small_number
+
+    FloatLayout:
+        id: basic
+        orientation: "vertical"
+        size: root.width,root.height
+        Label:
+            text: ''
+            size_hint_x: 1
+            size_hint_y: 0.85
+            pos_hint:{"center_x":0.5,"center_y":0.5}
+            canvas.before:
+                Color:
+                    rgba: 1,0,1,0
+                Rectangle:
+                    size: self.size
+                    pos: self.pos

@@ -1,0 +1,82 @@
+
+
+R0Window:
+
+    name: 'R0'
+
+    FloatLayout:
+        id: picture
+        orientation: "vertical"
+        size: root.width,root.height
+        pos_hint:{"center_x": 0.5, "center_y":0.5}
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1  # White background
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        # image
+        Label:
+            size: root.width, root.height
+            pos_hint:{"center_x":0.5,"center_y":0.5}
+            canvas.before:
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+                    source: root.source_of_picture
+        # text
+        Label:
+            opacity: 1
+            #markup: True
+            text: root.text_of_picture
+            font_size: root.height*0.05
+            font_name: "Sony"
+            pos_hint:{"center_x":0.5,"center_y":0.75}
+            color: root.color_of_text
+            canvas.before:
+                Color:
+                    rgba: 0,0,0,0
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+    FloatLayout:
+        id: line
+        orientation: "vertical"
+        size: root.width,root.height
+        # moving line
+        Label:
+            opacity: 1
+            markup: True
+            text: ""
+            size_hint_y: 0.005
+            size_hint_x: root.timer * 0.01
+            pos_hint: {"x": 0.1,"y":0.025}
+            color: 0,0,0,0
+            outline_weight: 2
+            outline_color: 0,0,0,1
+            canvas.before:
+                Color:
+                    rgba: 1,1,1,1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+    FloatLayout:
+        id: basic
+        orientation: "vertical"
+        size: root.width,root.height
+        Label:
+            text: ''
+            size_hint_x: 1
+            size_hint_y: 1
+            pos_hint:{"center_x":0.5,"center_y":0.5}
+            canvas.before:
+                Color:
+                    rgba: 1,0,1,0
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+
+

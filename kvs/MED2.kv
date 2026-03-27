@@ -1,0 +1,1607 @@
+#<Drag@Label>
+    #text: '1'
+    #size_hint_x: 1
+    #size_hint_y: 0.06
+    #pos_hint: {"center_x":0.5,"center_y":0.5}
+    #canvas.before:
+        #Color:
+            #rgba: 0,1,1,1
+        #Rectangle:
+            #size: self.size
+            #pos: self.pos
+
+<Drag@Image>
+    text: ' '
+    size_hint_x: 1
+    size_hint_y: 0.06
+    pos_hint:{"center_x":0.5,"center_y":0.5}
+    color: 0,1,1,1 # root.color_of_button
+
+<Drag_Text@Label>
+    text: " " #root.buttons[940][0][0]
+    font_name: "Sony"
+    font_size: 0.04  #0.04  * root.height
+    size_hint: None, None
+    size: self.texture_size
+    # pos_hint:{"x":0.05,"center_y":root.position_of_first_row + 0.005}
+    pos_hint:{"x":0.05,"center_y":0.5}
+    color: 0,0,0,1 # root.color_of_arrow  #root.color_of_first_button_text
+ # arrow
+<Drag_Image@Image>
+    opacity: 1 #root.opacity_of_arrow
+    source:  "r_right.png" #root.arrow
+    size_hint_x: 0.06
+    size_hint_y: 0.06
+    #pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row}
+    pos_hint:{"center_x":0.95,"center_y":0.5}
+    color: 41/255, 145/255, 43/255, 1 # root.color_of_arrow
+
+<Drag_Number@Label>
+    opacity: 1 # 0
+    text: " "  # f"{root.tap_counter}th"
+    font_name: "Sony"
+    font_size: 0.04  # * root.height
+    size_hint: None, None
+    size: self.texture_size
+    #pos_hint:{"x":0.05,"center_y":root.position_of_first_number}
+    pos_hint:{"x":0.05,"center_y": 0.5}
+    color: 41/255, 145/255, 43/255, 1  # root.color_of_text
+
+
+
+
+
+R2Window:
+
+    name: 'R2'
+
+    FloatLayout:
+        id: background_lines
+        orientation: "vertical"
+        size: root.width,root.height
+        Label:
+            text: ''
+            size_hint_x: 1
+            size_hint_y: 1
+            pos_hint:{"center_x":0.5,"center_y":0.5}
+            canvas.before:
+                Color:
+                    rgba: 200/255, 203/255, 202/255, 255/255
+                    #rgba: 0, 1, 0, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+
+    FloatLayout:
+        id: all_none
+        orientation: "vertical"
+        size: root.width,root.height
+        pos_hint:{"center_x": 0.5, "center_y":root.position_of_row}
+
+        # button on top above
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row}
+            color: root.color_of_first_button
+        # text
+        Label:
+            text: root.buttons[940][0][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row + 0.005}
+            color: root.color_of_arrow  #root.color_of_first_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrow
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row}
+            color: root.color_of_arrow
+
+
+
+    FloatLayout:
+        id: buttons
+        orientation: "vertical"
+        size: root.width,root.height
+        pos_hint:{"center_x": 0.5, "center_y":root.position_of_row}
+
+
+        # first row
+        Image:
+            text: '1'
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 1}
+            color: root.color_of_button
+        #Label:
+            #pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 1}
+            #text: '1'
+            #size_hint_x: 1
+            #size_hint_y: 0.06
+            #canvas.before:
+                #Color:
+                    #rgba: 1,1,1,1
+                #Rectangle:
+                    #size: self.size
+                    #pos: self.pos
+
+        # text
+        Label:
+            text: root.buttons[109][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 1}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 1}
+            color: root.color_of_arrows
+
+        # second row
+        Image:
+            text: '1'
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 2}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[106][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 2}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 2}
+            color: root.color_of_arrows
+        # 3 row
+        Image:
+            text: '1'
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 3}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[103][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 3}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 3}
+            color: root.color_of_arrows
+
+        # 4
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 4}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[100][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 4}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 4}
+            color: root.color_of_arrows
+
+
+        # 5 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 5}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[97][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 5}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 5}
+            color: root.color_of_arrows
+
+        # 6 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 6}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[94][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 6}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 6}
+            color: root.color_of_arrows
+
+        # 7 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 7}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[91][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 7}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 7}
+            color: root.color_of_arrows
+
+        # 8 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 8}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[88][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 8}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 8}
+            color: root.color_of_arrows
+
+        # 9 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 9}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[85][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 9}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 9}
+            color: root.color_of_arrows
+
+        # 10 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 10}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[82][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 10}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 10}
+            color: root.color_of_arrows
+
+        # 11 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 11}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[79][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 11}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 11}
+            color: root.color_of_arrows
+
+        # 12 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 12}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[76][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 12}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 12}
+            color: root.color_of_arrows
+
+        # 13 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 13}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[73][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 13}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 13}
+            color: root.color_of_arrows
+
+        # 14 row
+        Image:
+
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 14}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[70][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 14}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 14}
+            color: root.color_of_arrows
+
+
+        # 15 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 15}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[67][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 15}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 15}
+            color: root.color_of_arrows
+
+        # 16 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 16}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[64][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 16}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 16}
+            color: root.color_of_arrows
+
+        # 17 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 17}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[61][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 17}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 17}
+            color: root.color_of_arrows
+
+        # 18 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 18}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[58][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 18}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 18}
+            color: root.color_of_arrows
+
+
+        # 19 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 19}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[55][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 19}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 19}
+            color: root.color_of_arrows
+
+        # 20 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 20}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[52][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 20}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 20}
+            color: root.color_of_arrows
+
+
+        # 21 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 21}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[49][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 21}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 21}
+            color: root.color_of_arrows
+
+
+        # 22 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 22}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[46][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 22}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 22}
+            color: root.color_of_arrows
+
+
+        # 23 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 23}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[43][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 23}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 23}
+            color: root.color_of_arrows
+
+        # 24 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 24}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[40][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 24}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 24}
+            color: root.color_of_arrows
+
+
+        # 25 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 25}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[37][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 25}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 25}
+            color: root.color_of_arrows
+
+
+        # 26 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 26}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[34][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 26}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 26}
+            color: root.color_of_arrows
+
+
+        # 27 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 27}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[31][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 27}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 27}
+            color: root.color_of_arrows
+
+
+        #28 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 28}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[28][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 28}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 28}
+            color: root.color_of_arrows
+
+        # 29 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 29}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[25][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 29}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 29}
+            color: root.color_of_arrows
+
+        # 30 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 30}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[22][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 30}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 30}
+            color: root.color_of_arrows
+
+        # 31 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 31}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[19][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 31}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 31}
+            color: root.color_of_arrows
+
+        # 32 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 32}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[16][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 32}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 32}
+            color: root.color_of_arrows
+
+        # 33 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 33}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[13][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 33}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 33}
+            color: root.color_of_arrows
+
+        # 34 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 34}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[10][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 34}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 34}
+            color: root.color_of_arrows
+
+        # 35 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 35}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[7][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 35}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 35}
+            color: root.color_of_arrows
+
+        # 36 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 36}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[4][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 36}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 36}
+            color: root.color_of_arrows
+
+        # 37 row
+        Image:
+            size_hint_x: 1
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.5,"center_y":root.position_of_first_row - root.rate * 37}
+            color: root.color_of_button
+        # text
+        Label:
+            text: root.buttons[1][0]
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_row - root.rate * 37}
+            color: root.color_of_button_text
+        # arrow
+        Image:
+            opacity: root.opacity_of_arrows
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":root.position_of_first_row - root.rate * 37}
+            color: root.color_of_arrows
+
+
+
+
+    FloatLayout:
+        id: numbers
+        orientation: "vertical"
+        size: root.width,root.height
+        pos_hint:{"center_x": 0.5, "center_y":root.position_of_row}
+        # the numbers of the rows
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 1}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 2}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 3}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 4}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 5}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 6}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 7}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 8}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 9}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 10}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 11}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 12}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 13}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 14}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 15}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 16}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 17}
+            color: root.color_of_text
+
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 18}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 19}
+            color: root.color_of_text
+
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 20}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 21}
+            color: root.color_of_text
+
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 22}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 23}
+            color: root.color_of_text
+
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 24}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 25}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 26}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 27}
+            color: root.color_of_text
+
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 28}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 29}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 30}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 31}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 32}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 33}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 34}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 35}
+            color: root.color_of_text
+
+        Label:
+            opacity: 0
+            text: f"{root.tap_counter}th"
+            font_name: "Sony"
+            font_size: 0.04  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x":0.05,"center_y":root.position_of_first_number - root.rate * 36}
+            color: root.color_of_text
+
+    FloatLayout:
+        id: temporary
+        orientation: "vertical"
+        size: root.width,root.height
+        pos_hint:{"center_x": 0.5, "center_y": 0.5}
+
+    FloatLayout:
+        id: top
+        orientation: "vertical"
+        size: root.width,root.height
+        pos_hint:{"center_x": 0.5, "center_y": 0.5}
+
+        # top base
+        Image:
+            text: ''
+            size_hint_x: 1
+            size_hint_y: 0.05
+            pos_hint:{"center_x":0.5,"center_y":0.975}
+            color: root.color_of_top
+
+        # settings text
+        Label:
+            text: root.buttons[950][0][0]
+            font_name: "Sony"
+            font_size: 0.03  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"x": 0.035,"center_y":1-0.025}
+            color: root.color_of_top_text #41 / 255, 145 / 255, 43 / 255, 1
+
+        # line
+        Image:
+            opacity: 1
+            text: ''
+            size_hint_x: 1
+            size_hint_y: 0.003
+            pos_hint:{"center_x":0.5,"center_y":0.95}
+            color: root.color_of_top_line
+
+
+
+
+        # music picto not
+        Image:
+            opacity: 1
+            source: root.pictos[17][0]
+            size_hint_y: 0.03
+            size_hint_x: 0.03
+            pos_hint:{"center_x":0.95,"center_y":1-0.025}
+            color: root.color_of_top_picto
+        Image:
+            opacity: 0
+            source: root.pictos[17][2]
+            size_hint_y: 0.05
+            size_hint_x: 0.05
+            pos_hint:{"center_x":0.95,"center_y":1-0.025}
+            color: root.color_of_top_picto
+        Image:
+            opacity: 1
+            source: root.pictos[17][1]
+            size_hint_y: 0.05
+            size_hint_x: 0.05
+            pos_hint:{"center_x":0.95,"center_y":1-0.025}
+            color: root.color_of_top_picto
+
+        # voice picto
+        Image:
+            opacity: 1
+            source: root.pictos[11][0]
+            size_hint_y: 0.05
+            size_hint_x: 0.05
+            pos_hint:{"center_x":0.85,"center_y":1-0.025}
+            color: root.color_of_top_picto
+        # language picto
+        Image:
+            opacity: 1
+            source: root.pictos[8][0]
+            size_hint_y: 0.05
+            size_hint_x: 0.05
+            pos_hint:{"center_x":0.75,"center_y":1-0.025}
+
+        # airplane picto
+        Image:
+            opacity: 1
+            source: root.pictos[5][0]
+            size_hint_y: 0.05
+            size_hint_x: 0.05
+            pos_hint:{"center_x":0.65,"center_y":1-0.025}
+            color: root.color_of_top_picto
+        # touch sound picto
+        Image:
+            opacity: 1
+            source: root.pictos[2][0]
+            size_hint_y: 0.05
+            size_hint_x: 0.05
+            pos_hint:{"center_x":0.55,"center_y":1-0.025}
+            color: root.color_of_top_picto
+
+
+
+
+    FloatLayout:
+        id: bottom
+        orientation: "vertical"
+        size: root.width,root.height
+        pos_hint:{"center_x": 0.5, "center_y": 0.5}
+
+        # bottom base
+        Image:
+            text: ''
+            size_hint_x: 1
+            size_hint_y: 0.078
+            pos_hint:{"center_x":0.5,"center_y":0.035}
+            color: root.color_of_bottom_button
+
+
+        # menu picto
+        Image:
+            source: "r_set_100.png"
+            size_hint_x: 0.075
+            size_hint_y: 0.075
+            pos_hint:{"x":0.11,"center_y":0.035}
+            color: root.color_of_bottom_picto
+
+        # player picto
+        Image:
+            source: "r_player_100.png"
+            size_hint_x: 0.075
+            size_hint_y: 0.075
+            pos_hint:{"x":0.82,"center_y":0.035}
+            color: root.color_of_bottom_picto
+        # bottom arrow right
+        Image:
+            opacity: root.opacity_of_arrow_b
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.95,"center_y":0.035}
+            color: root.color_of_arrow_b
+        # bottom arrow left
+        Image:
+            opacity: root.opacity_of_arrow_b
+            source: root.arrow
+            size_hint_x: 0.06
+            size_hint_y: 0.06
+            pos_hint:{"center_x":0.05,"center_y":0.035}
+            color: root.color_of_arrow_b
+            canvas.before:
+                PushMatrix
+                Rotate:
+                    axis: 0,1,0
+                    angle: 180
+                    origin: self.center
+            canvas.after:
+                PopMatrix
+
+
+    FloatLayout:
+        id: bottom_line
+        orientation: "vertical"
+        size: root.width,root.height
+        pos_hint:{"center_x": 0.5, "center_y": 0.5}
+        # line
+        Image:
+            text: ''
+            size_hint_x: 1
+            size_hint_y: 0.003
+            pos_hint:{"center_x":0.5,"center_y":0.073}
+            color: root.color_of_bottom_button_line
+
+        Label:
+            opacity: 1
+            text: root.small_number
+            font_name: "Sony"
+            font_size: 0.035  * root.height
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint:{"center_x":0.5,"center_y":0.040}
+            color: root.color_of_small_number
+
+    FloatLayout:
+        id: basic
+        orientation: "vertical"
+        size: root.width,root.height
+        Label:
+            text: ''
+            size_hint_x: 1
+            size_hint_y: 0.85
+            pos_hint:{"center_x":0.5,"center_y":0.5}
+            canvas.before:
+                Color:
+                    rgba: 1,0,1,0
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
