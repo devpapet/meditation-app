@@ -12,7 +12,7 @@ nano README.md- Drag and drop – manual code
 
 ## Screenshot
 
-![Meditation App Screenshot](images/meditation_screenshot.png)
+![Meditation App Screenshot](images/meditation_screenshot.jpg)
 
 ## Download
 
