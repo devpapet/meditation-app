@@ -25,6 +25,4 @@ I also have another Android app available on Google Play (not open source):
 
 [Download on Google Play](https://play.google.com/store/apps/details?id=org.peterout.peterout)
 
-### Screenshot
 
- <img src="images/other_app_screenshot.jpg" width="300"/>
