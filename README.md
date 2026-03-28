@@ -27,7 +27,7 @@ I also have another Android app available on Google Play (not open source):
 
 ## Screenshot
 
-<img src="images/screenshot_of_peterout.png" alt="Meditation App Screenshot" width="200"/>
+<img src="images/screenshot_of_peterout.png" alt="Peterout App Screenshot" width="200"/>
 
 
 
