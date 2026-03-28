@@ -25,4 +25,9 @@ I also have another Android app available on Google Play (not open source):
 
 [Download on Google Play](https://play.google.com/store/apps/details?id=org.peterout.peterout)
 
+## Screenshot
+
+<img src="images/screenshot_tree2_540x1080(1).png" alt="Meditation App Screenshot" width="200"/>
+
+
 
