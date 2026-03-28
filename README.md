@@ -18,3 +18,9 @@ Python Kivy Android app. Besides many features, it includes:
 
 [Click here to download the latest APK](https://github.com/devpapet/meditation-app/releases/latest/download/med34.apk)# meditation-app
 Python Kivy Android app
+
+## Other Project (Google Play)
+
+I also have another Android app available on Google Play (not open source):
+
+[Download on Google Play](https://play.google.com/store/apps/details?id=org.peterout.peterout)
